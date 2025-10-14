@@ -1,2 +1,5 @@
 fmt_check:
-	rustfmt --check src/* tests/*
+	rustfmt --check src/* examples/* tests/*
+test:
+	cargo test
+

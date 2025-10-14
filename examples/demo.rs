@@ -22,7 +22,12 @@ fn main() {
     table.set_decimal_places(3);
 
     table.set_headers(vec![
-        "Cluster", "Node Count", "Outgoing Gateways", "Incoming Gateways", "Connections", "RTT [ms]",
+        "Cluster",
+        "Node Count",
+        "Outgoing Gateways",
+        "Incoming Gateways",
+        "Connections",
+        "RTT [ms]",
     ]);
 
     table.add_row(vec![
@@ -63,4 +68,3 @@ fn main() {
 
     table.render();
 }
-
