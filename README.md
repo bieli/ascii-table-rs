@@ -2,6 +2,8 @@
 
 ![CI status](https://github.com/bieli/ascii-table-rs/actions/workflows/test.yaml/badge.svg)
 ![github_tag](https://img.shields.io/github/v/tag/bieli/ascii-table-rs)
+[![Crates.io](https://img.shields.io/crates/v/ascii-table-rs.svg)](https://crates.io/crates/ascii-table-rs)
+
 
 **ascii-table-rs** is a lightweight, flexible Rust library for rendering beautiful ASCII tables in the terminal. 
 
