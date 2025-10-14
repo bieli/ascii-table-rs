@@ -1,11 +1,11 @@
 [package]
 name = "ascii_table_rs"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 authors = ["Marcin Bielak <marcin.bieli+AsciiTablersgithub@gmail.com>"]
 description = "Elegant ASCII table renderer for Rust CLI and terminal apps"
-repository = "https://github.com/yourname/ascii-table-rs"
-homepage = "https://github.com/yourname/ascii-table-rs"
+repository = "https://github.com/bieli/ascii-table-rs"
+homepage = "https://github.com/bieli/ascii-table-rs"
 license = "MIT"
 keywords = ["ASCII", "table", "terminal", "data", "cli"]
 
