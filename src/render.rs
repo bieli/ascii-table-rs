@@ -1,5 +1,5 @@
-use unicode_width::UnicodeWidthStr;
 use std::fmt;
+use unicode_width::UnicodeWidthStr;
 
 const TOP_LEFT: char = '╭';
 const TOP_RIGHT: char = '╮';
@@ -17,7 +17,6 @@ const ROW_RIGHT: char = '┤';
 const ROW_MID: char = '┼';
 
 const FOOT_MID: char = '┴';
-
 
 #[derive(Debug, Clone)]
 pub enum CellValue {
@@ -124,16 +123,29 @@ impl AsciiTable {
             }
         }
 
-        let total_width: usize = col_widths.iter().map(|w| w + 2).sum::<usize>() + (col_widths.len() - 1);
+        let total_width: usize =
+            col_widths.iter().map(|w| w + 2).sum::<usize>() + (col_widths.len() - 1);
 
-        output += &format!("{}{}{}\n", TOP_LEFT, HORIZONTAL.to_string().repeat(total_width), TOP_RIGHT);
-        output += &format!("{}{:^width$}{}\n", VERTICAL, self.title, VERTICAL, width = total_width);
+        output += &format!(
+            "{}{}{}\n",
+            TOP_LEFT,
+            HORIZONTAL.to_string().repeat(total_width),
+            TOP_RIGHT
+        );
+        output += &format!(
+            "{}{:^width$}{}\n",
+            VERTICAL,
+            self.title,
+            VERTICAL,
+            width = total_width
+        );
         output += &format_separator(&col_widths, HEADER_LEFT, HEADER_MID, HEADER_RIGHT);
         output += &format_row(&self.headers, &col_widths);
         output += &format_separator(&col_widths, ROW_LEFT, ROW_MID, ROW_RIGHT);
 
         for row in &self.rows {
-            let cells: Vec<String> = row.iter()
+            let cells: Vec<String> = row
+                .iter()
                 .map(|c| c.to_string_with_precision(self.decimal_places))
                 .collect();
             output += &format_row(&cells, &col_widths);
@@ -141,7 +153,8 @@ impl AsciiTable {
 
         if let Some(summary) = &self.summary {
             output += &format_separator(&col_widths, ROW_LEFT, ROW_MID, ROW_RIGHT);
-            let cells: Vec<String> = summary.iter()
+            let cells: Vec<String> = summary
+                .iter()
                 .map(|c| c.to_string_with_precision(self.decimal_places))
                 .collect();
             output += &format_row(&cells, &col_widths);
@@ -188,4 +201,3 @@ fn format_row(values: &[String], widths: &[usize]) -> String {
     line += "\n";
     line
 }
-

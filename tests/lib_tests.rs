@@ -106,4 +106,3 @@ mod tests {
         assert_eq!(output, expected);
     }
 }
-
