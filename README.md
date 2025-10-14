@@ -1,5 +1,8 @@
 # ascii-table-rs
 
+![CI status](https://github.com/bieli/ascii-table-rs/actions/workflows/test.yaml/badge.svg)
+![github_tag](https://img.shields.io/github/v/tag/bieli/ascii-table-rs)
+
 **ascii-table-rs** is a lightweight, flexible Rust library for rendering beautiful ASCII tables in the terminal. 
 
 It supports automatic column sizing, customizable float precision, summary rows, and Unicode box-drawing characters for a polished CLI/terminals experience.
@@ -40,7 +43,7 @@ $ cargo run --example demo
 
 ```toml
 [dependencies]
-ascii-table-rs = "0.2.0"
+ascii-table-rs = "1.0.0"
 ```
 
 ### Create and render a table
@@ -113,13 +116,16 @@ $ cargo test
 ```
 
 ## TODO list
-[ ] - publish library to cargo repository
-[ ] - add summary auto aggregates (sum, mul, avg, mean, std_dev, percentile_99)
-[ ] - add CSV file as input to table to visualize CSV cells
-[ ] - connect previous features to auto aggregates and CSV view, to calculate aggregates from CSV files
-[ ] - create bin program for exucure below features in terminal pipeline like `cat salaries.csv | csv2tab --summary sum`
-[ ] - add feature to auto refresh table on terminal with defined seconds
-[ ] - add code test coverage metrics
+- [X] create tag and release for first version
+- [X] add CI for Rust in GIthub Actions
+- [X] update unit tests
+- [ ] publish library to cargo repository
+- [ ] add summary auto aggregates (sum, mul, avg, mean, std_dev, percentile_99)
+- [ ] add CSV file as input to table to visualize CSV cells
+- [ ] connect previous features to auto aggregates and CSV view, to calculate aggregates from CSV files
+- [ ] create bin program for exucure below features in terminal pipeline like `cat salaries.csv | csv2tab --summary sum`
+- [ ] add feature to auto refresh table on terminal with defined seconds
+- [ ] add code test coverage metrics
 
 
 ## Contributing
