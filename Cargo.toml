@@ -7,7 +7,7 @@ description = "Elegant ASCII table renderer for Rust CLI and terminal apps"
 repository = "https://github.com/yourname/ascii-table-rs"
 homepage = "https://github.com/yourname/ascii-table-rs"
 license = "MIT"
-keywords = ["ASCII", "table", "terminal", "data", "renderer", "cli"]
+keywords = ["ASCII", "table", "terminal", "data", "cli"]
 
 [lib]
 name = "ascii_table_rs"
