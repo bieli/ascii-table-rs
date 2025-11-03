@@ -121,7 +121,7 @@ $ cargo test
 - [X] create tag and release for first version
 - [X] add CI for Rust in GIthub Actions
 - [X] update unit tests
-- [ ] publish library to cargo repository
+- [X] publish library to cargo repository
 - [ ] add summary auto aggregates (sum, mul, avg, mean, std_dev, percentile_99)
 - [ ] add CSV file as input to table to visualize CSV cells
 - [ ] connect previous features to auto aggregates and CSV view, to calculate aggregates from CSV files
