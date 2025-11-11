@@ -126,8 +126,6 @@ mod tests {
 
         let output = table.render_to_string();
 
-        table.render();
-
         let expected = "\
 ╭────────────────╮
 │   Test Table   │
