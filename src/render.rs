@@ -1,4 +1,5 @@
 use std::fmt;
+use strip_ansi_escapes::strip_str;
 use unicode_width::UnicodeWidthStr;
 
 const TOP_LEFT: char = '╭';
@@ -106,20 +107,20 @@ impl AsciiTable {
         let mut col_widths = vec![0; self.headers.len()];
 
         for (i, header) in self.headers.iter().enumerate() {
-            col_widths[i] = UnicodeWidthStr::width(header.as_str());
+            col_widths[i] = get_str_width_safe(header.as_str());
         }
 
         for row in &self.rows {
             for (i, cell) in row.iter().enumerate() {
                 let cell_str = cell.to_string_with_precision(self.decimal_places);
-                col_widths[i] = col_widths[i].max(UnicodeWidthStr::width(cell_str.as_str()));
+                col_widths[i] = col_widths[i].max(get_str_width_safe(cell_str.as_str()));
             }
         }
 
         if let Some(summary) = &self.summary {
             for (i, cell) in summary.iter().enumerate() {
                 let cell_str = cell.to_string_with_precision(self.decimal_places);
-                col_widths[i] = col_widths[i].max(UnicodeWidthStr::width(cell_str.as_str()));
+                col_widths[i] = col_widths[i].max(get_str_width_safe(cell_str.as_str()));
             }
         }
 
@@ -187,7 +188,7 @@ fn format_row(values: &[String], widths: &[usize]) -> String {
     let mut line = String::new();
     line += &VERTICAL.to_string();
     for (value, width) in values.iter().zip(widths.iter()) {
-        let content_width = UnicodeWidthStr::width(value.as_str());
+        let content_width = get_str_width_safe(value.as_str());
         let padding = width.saturating_sub(content_width);
         line += &format!(
             " {:left$}{:right$} {}",
@@ -200,4 +201,10 @@ fn format_row(values: &[String], widths: &[usize]) -> String {
     }
     line += "\n";
     line
+}
+
+fn get_str_width_safe(txt: &str) -> usize {
+    let stripped = strip_str(txt);
+
+    UnicodeWidthStr::width(stripped.as_str())
 }
