@@ -1,6 +1,6 @@
 [package]
 name = "ascii_table_rs"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 authors = ["Marcin Bielak <marcin.bieli+AsciiTablersgithub@gmail.com>"]
 description = "Elegant ASCII table renderer for Rust CLI and terminal apps"
