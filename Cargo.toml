@@ -14,5 +14,6 @@ name = "ascii_table_rs"
 path = "src/lib.rs"
 
 [dependencies]
+strip-ansi-escapes = "0.2.1"
 unicode-width = "0.1"
 

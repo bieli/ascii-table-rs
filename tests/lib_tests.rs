@@ -105,4 +105,42 @@ mod tests {
 
         assert_eq!(output, expected);
     }
+
+    #[test]
+    fn test_render_to_string_with_colors_output_exact() {
+        let mut table = AsciiTable::new("Test Table");
+        table.set_headers(vec!["Name", "Score"]);
+        table.add_row(vec![
+            CellValue::Str("\x1b[93mAlice\x1b[0m".into()),
+            CellValue::Float(95.6789),
+        ]);
+        table.add_row(vec![
+            CellValue::Str("Bob".into()),
+            CellValue::Float(88.1234),
+        ]);
+        table.set_summary(vec![
+            CellValue::Str("Total".into()),
+            CellValue::Float(183.8023),
+        ]);
+        table.set_decimal_places(2);
+
+        let output = table.render_to_string();
+
+        table.render();
+
+        let expected = "\
+╭────────────────╮
+│   Test Table   │
+├───────┬────────┤
+│ Name  │ Score  │
+├───────┼────────┤
+│ \x1b[93mAlice\x1b[0m │ 95.67  │
+│ Bob   │ 88.12  │
+├───────┼────────┤
+│ Total │ 183.80 │
+╰───────┴────────╯
+";
+
+        assert_eq!(output, expected);
+    }
 }
