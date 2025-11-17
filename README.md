@@ -45,7 +45,7 @@ $ cargo run --example demo
 
 ```toml
 [dependencies]
-ascii-table-rs = "1.0.0"
+ascii-table-rs = "1.0.2"
 ```
 
 ### Create and render a table
